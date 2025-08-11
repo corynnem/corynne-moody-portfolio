@@ -1,5 +1,5 @@
 import { makeStyles } from "tss-react/mui";
-import { mozillaText } from "@/app/layout";
+import { mozillaText } from "@/app/ui/fonts";
 
 const useStyles = makeStyles()((theme) => ({
   body: {
