@@ -1,6 +1,5 @@
 import "./globals.css";
 import { NextAppDirEmotionCacheProvider } from "tss-react/next/appDir";
-// import { mozillaText } from "./ui/fonts";
 import localFont from "next/font/local";
 
 export const mozillaText = localFont({
