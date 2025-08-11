@@ -1,0 +1,43 @@
+image: node:latest # Or a specific Node.js version like node:18.20.0
+
+stages:
+  - build
+  - test
+  - deploy # Optional, for deployment to a server or GitLab Pages
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+    - .next/cache/ # Next.js specific cache for faster builds
+
+build_job:
+  stage: build
+  script:
+    - npm install # Or yarn install if using yarn
+    - npm run build # Or yarn build, this will build your Next.js app
+  artifacts:
+    paths:
+      - .next/ # Or out/ if using static export
+    expire_in: 1 day # Adjust as needed
+
+test_job:
+  stage: test
+  script:
+    - npm install # Or yarn install
+    - npm test # Or yarn test, runs your tests (e.g., Jest, React Testing Library)
+  allow_failure: false # Optional: allows pipeline to continue even if tests fail
+
+deploy_pages: # Example for GitLab Pages deployment
+  stage: deploy
+  script:
+    - npm install # Or yarn install
+    - npm run build # Or yarn build
+    - mv .next/static public/static # Adjust if using static export and different output
+    - mv .next/server/pages public/ # Adjust if using static export and different output
+    - cp -r public . # Copy contents to the root for GitLab Pages
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH # Deploy only on default branch
