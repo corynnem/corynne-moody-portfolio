@@ -1,5 +1,15 @@
 import { makeStyles } from "tss-react/mui";
 import { mozillaText } from "@/app/ui/fonts";
+import { Theme } from '@mui/material/styles';
+
+const getCommonButtonStyles = (theme: Theme) =>{
+  return {
+    fontFamily: mozillaText.style.fontFamily,
+    padding: theme.spacing(1, 2),
+    borderRadius: "50px",
+    fontWeight: 700
+  }
+}
 
 const useStyles = makeStyles()((theme) => ({
   body: {
@@ -34,10 +44,29 @@ const useStyles = makeStyles()((theme) => ({
   subtitle: {
     fontFamily: mozillaText.style.fontFamily,
     color: "#F1E3D3",
-    fontSize: "1.5rem",
+    fontSize: "1.75rem",
     [theme.breakpoints.down("sm")]: {
-      fontSize: "1rem",
+      fontSize: "1.05rem",
     },
+  },
+  resumeButton: {
+    color: "#F1E3D3",
+    backgroundColor: "#720026",
+    ...getCommonButtonStyles(theme)
+  },
+  contactButton: {
+    backgroundColor: "#F1E3D3",
+    color: "#720026",
+    ...getCommonButtonStyles(theme)
+  },
+  buttonContainer: {
+    display: "flex",
+    gap: theme.spacing(5),
+    justifyContent: "center",
+    alignContent: "center",
+    width: "100vw",
+    marginTop: theme.spacing(2),
+
   },
 }));
 export default useStyles;
