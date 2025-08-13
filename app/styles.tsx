@@ -8,7 +8,7 @@ const useStyles = makeStyles()(() => ({
   },
   nav: {
     fontFamily: mozillaText.style.fontFamily,
-    backgroundColor: "#720026",
+    backgroundColor: theme.palette.background.default,
     borderRadius: "50px",
     padding: theme.spacing(1, 2),
     height: "500px",
