@@ -1,12 +1,9 @@
 "use client";
 import React from 'react'
-import { HomeSection } from "@/components/Home";
+import { HomeSection, About, Navbar, Projects, Contact } from '@/components';
 import { Box, Divider } from "@mui/material";
 import useStyles from "./styles";
-import { Navbar } from "@/components/Navbar";
-import { About } from "@/components/About";
-import { Projects } from '@/components/Projects'
-import { Contact } from '@/components/Contact'
+
 
 
 

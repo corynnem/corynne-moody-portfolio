@@ -3,7 +3,7 @@ import { Box, Button } from "@mui/material";
 
 import { useMediaQuery } from "@mui/material";
 import useStyles from "./styles";
-import { navItems, NavItems } from "./helper";
+import { navItems, NavItems } from "./helpers";
 import { theme } from "@/theme";
 
 export const Navbar = () => {
