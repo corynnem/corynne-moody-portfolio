@@ -22,7 +22,7 @@ const useStyles = makeStyles()((theme) => ({
     alignItems: "center",
   },
   title: {
-    fontFamily: mozillaText.style.fontFamily,
+    fontFamily: theme.typography.fontFamily,
     color: "#F1E3D3",
     fontWeight: 500,
     fontSize: "4rem",
@@ -31,7 +31,7 @@ const useStyles = makeStyles()((theme) => ({
     },
   },
   subtitle: {
-    fontFamily: mozillaText.style.fontFamily,
+    fontFamily: theme.typography.fontFamily,
     color: "#F1E3D3",
     fontSize: "1.5rem",
     [theme.breakpoints.down("sm")]: {
@@ -39,7 +39,7 @@ const useStyles = makeStyles()((theme) => ({
     },
   },
   nav: {
-    fontFamily: mozillaText.style.fontFamily,
+    fontFamily: theme.typography.fontFamily,
     height: "60px",
     width: "600px",
     display: "flex",
@@ -48,7 +48,7 @@ const useStyles = makeStyles()((theme) => ({
     marginTop: theme.spacing(3),
     borderRadius: "50px",
     gap: theme.spacing(5),
-    backgroundColor: "#720026",
+    backgroundColor: theme.palette.background.default,
     [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(1, 3),
       fontSize: ".875rem",
@@ -58,7 +58,7 @@ const useStyles = makeStyles()((theme) => ({
   },
   navButton: {
     color: "#F1E3D3",
-    fontFamily: mozillaText.style.fontFamily,
+    fontFamily: theme.typography.fontFamily,
     padding: theme.spacing(1, 5),
     borderRadius: "50px",
     fontSize: "1rem",

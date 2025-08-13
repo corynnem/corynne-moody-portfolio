@@ -51,12 +51,12 @@ const useStyles = makeStyles()((theme) => ({
   },
   resumeButton: {
     color: "#F1E3D3",
-    backgroundColor: "#720026",
+    backgroundColor: theme.palette.background.default,
     ...getCommonButtonStyles(theme)
   },
   contactButton: {
     backgroundColor: "#F1E3D3",
-    color: "#720026",
+    color: theme.palette.background.default,
     ...getCommonButtonStyles(theme)
   },
   buttonContainer: {
