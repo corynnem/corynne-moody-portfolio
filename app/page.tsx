@@ -7,7 +7,7 @@ import useStyles from "./styles";
 
 
 
-export default function App() {
+const App = () => {
   const { classes } = useStyles();
   return (
     <Box className={classes.body}>
@@ -22,3 +22,4 @@ export default function App() {
     </Box>
   );
 }
+ export default App;
