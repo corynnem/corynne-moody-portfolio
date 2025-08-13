@@ -9,25 +9,25 @@ export enum NavItems  {
 
 export const navItems = [
   {
-    label: "home",
+    label: "Home",
     icon: <Home/> ,
     link: "#home",
     key: NavItems.Home
   },
   {
-    label: "about",
+    label: "About",
     icon: <Person/>,
     link: "#about",
     key: NavItems.About
   },
   {
-    label: "projects",
+    label: "Projects",
     icon: <Code/>,
     link: "#projects",
     key: NavItems.Projects
   },
   {
-    label: "contact",
+    label: "Contact",
     icon: <Public/>,
     link: "#contact",
     key: NavItems.Contact
