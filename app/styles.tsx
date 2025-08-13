@@ -1,13 +1,12 @@
 import { makeStyles } from "tss-react/mui";
 import { theme } from "../theme";
-import { mozillaText } from "./ui/fonts";
+
 const useStyles = makeStyles()(() => ({
   body: {
     height: "100vh",
     width: "100vw",
   },
   nav: {
-    fontFamily: mozillaText.style.fontFamily,
     backgroundColor: theme.palette.background.default,
     borderRadius: "50px",
     padding: theme.spacing(1, 2),
@@ -15,7 +14,6 @@ const useStyles = makeStyles()(() => ({
   },
   navButton: {
     color: "#F1E3D3",
-    fontFamily: mozillaText.style.fontFamily,
     padding: theme.spacing(0, 5),
   },
   navSection: {
@@ -29,5 +27,9 @@ const useStyles = makeStyles()(() => ({
       marginTop: '20px',
     }
   },
+  divider: {
+    backgroundColor: theme.palette.background.paper,
+    width: '50%'
+  }
 }));
 export default useStyles;
