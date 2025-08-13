@@ -1,5 +1,4 @@
 import { makeStyles } from "tss-react/mui";
-import { mozillaText } from "@/app/ui/fonts";
 
 const useStyles = makeStyles()((theme) => ({
   body: {
@@ -15,7 +14,6 @@ const useStyles = makeStyles()((theme) => ({
     
   },
   title: {
-    fontFamily: mozillaText.style.fontFamily,
     color: "#F1E3D3",
     fontWeight: 500,
     fontSize: "4rem",
@@ -26,7 +24,6 @@ const useStyles = makeStyles()((theme) => ({
     }
   },
   subtitle: {
-    fontFamily: mozillaText.style.fontFamily,
     color: "#F1E3D3",
     fontSize: "1.275rem",
     [theme.breakpoints.down('sm')]: {
