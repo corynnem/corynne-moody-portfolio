@@ -1,11 +1,8 @@
 "use client";
 import React from 'react'
-import { HomeSection, About, Navbar, Projects, Contact } from '@/components';
+import { HomeSection, About, Navbar, Projects,  Contact } from '@/components';
 import { Box, Divider } from "@mui/material";
 import useStyles from "./styles";
-
-
-
 
 const App = () => {
   const { classes } = useStyles();
@@ -17,7 +14,7 @@ const App = () => {
       <HomeSection />
       <About />
       <Divider className={classes.divider} />
-      <Projects />
+      <Projects/>
       <Contact />
     </Box>
   );
