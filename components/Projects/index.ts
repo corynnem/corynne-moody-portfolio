@@ -1,2 +1,3 @@
 import { Projects } from "./Projects";
-export { Projects }
+import { Project } from "./helpers";
+export { Projects, type Project }
