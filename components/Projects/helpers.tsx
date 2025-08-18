@@ -13,16 +13,7 @@ export type Project = {
 
 
 export const projects: Project[] = [
-  {
-    id: "1",
-    name: "Health Associates",
-    description:
-      "A clean and informative healthcare site for a team of mental health professionals in Indianapolis, designed to highlight services, providers, billing and telehealth options—all with an approachable, client-first feel.",
-    tech: ["Next.js", "MUI", "React", "Vercel"],
-    projectLink: "https://healthassociatesindy.com/",
-    codeLink: "https://github.com/corynnem/health-associates",
-    image: healthAssociates.src
-  },
+
   {
     id: "2",
     name: "Task Database",
@@ -50,5 +41,15 @@ export const projects: Project[] = [
     tech: ["React", "Next", "MUI", "Vercel"],
     projectLink: "https://example.com/noa",
     inProgress: true
+  },
+  {
+    id: "1",
+    name: "Health Associates",
+    description:
+      "A clean and informative healthcare site for a team of mental health professionals in Indianapolis, designed to highlight services, providers, billing and telehealth options—all with an approachable, client-first feel.",
+    tech: ["Next.js", "MUI", "React", "Vercel"],
+    projectLink: "https://healthassociatesindy.com/",
+    codeLink: "https://github.com/corynnem/health-associates",
+    image: healthAssociates.src
   },
 ];
