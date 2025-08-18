@@ -111,6 +111,10 @@ export const useStyles = makeStyles()((theme) => ({
   navToProject: {
     marginTop: theme.spacing(1.5),
     gap: theme.spacing(1),
+    [theme.breakpoints.down('sm')]: {
+      display: 'flex',
+      flexDirection: 'column'
+    }
   },
   ghostBtn: {
     color: theme.palette.background.paper,
