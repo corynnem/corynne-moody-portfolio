@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Card, Chip, Stack, Typography, Button } from "@mui/material";
-import { Launch, Code } from "@mui/icons-material";
+import { Launch, Warning , Code} from "@mui/icons-material";
 import { useStyles } from "./styles";
 import { Project } from "../helpers";
 
@@ -10,9 +10,12 @@ interface IndividualCardProps {
   index: number
 }
 
+
+
+
 export const IndividualCard = ({ project, onSelect, index }: IndividualCardProps) => {
   const { classes, cx } = useStyles();
-  const { id, image, name, description, tech, projectLink, codeLink } = project ?? {};
+  const { id, image, name, description, tech, projectLink, codeLink, inProgress } = project ?? {};
 
   return (
     <Box
@@ -65,6 +68,16 @@ export const IndividualCard = ({ project, onSelect, index }: IndividualCardProps
               >
                 View Code
               </Button>
+            )}
+              {inProgress && (
+              <Button
+                variant="outlined"
+                size="small"
+                endIcon={<Warning fontSize="small" sx={{color: 'white'}} />}
+                className={classes.ghostBtn}
+               >
+                Under Construction
+               </Button>
             )}
           </Stack>
         </Box>

@@ -10,7 +10,6 @@ export const Navbar = () => {
   const [activeNavItem, setActiveNavItem] = useState(NavItems.Home);
   const { classes } = useStyles();
   const isBelowSm = useMediaQuery(theme.breakpoints.down('sm'));
-  console.log(isBelowSm);
 
   return (
     <Box className={`${classes.nav} `}>
