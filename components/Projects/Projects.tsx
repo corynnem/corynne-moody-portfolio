@@ -15,13 +15,17 @@ export const Projects = () => {
     delay: autoplayDelay,
     stopOnInteraction: false,
     stopOnMouseEnter: true,
-  })
+  });
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, align: "center", dragFree: false, slidesToScroll: 1,  containScroll: "trimSnaps",  },
-    [
-      autoplay
-    ]
+    {
+      loop: true,
+      align: "end",
+      dragFree: false,
+      slidesToScroll: 1,
+      containScroll: "trimSnaps",
+    },
+    [autoplay]
   );
 
   const onSelect = () => {
@@ -31,25 +35,25 @@ export const Projects = () => {
     emblaApi.on("reInit", onSelect);
     setSelected(selectedProject);
 
-    return selectedProject 
+    return selectedProject;
   };
 
   const selectOnClick = (index: number) => {
-   const selectedProject = onSelect() ?? 0
+    const selectedProject = onSelect() ?? 0;
+    // TODO cm 8/18/25: When on the last index, if you select the first index it kicks you back, 
+    // to the first and vice versa. This needs to be sorted
+    // console.log(index, projects.length - 1, selectedProject, index === 0 && selectedProject === projects.length - 1)
+    // if(index === 0 && selectedProject === projects.length - 1) {
+    //   handlePrev()
+    // }
 
-    console.log(index, projects.length - 1, selectedProject, index === 0 && selectedProject === projects.length - 1)
-    if(index === 0 && selectedProject === projects.length - 1) {
-      emblaApi?.scrollTo(selectedProject)
+    if (index > selectedProject) {
+      handleNext();
     }
-
-    if(index > selectedProject) {
-      handleNext()
+    if (index < selectedProject) {
+      handlePrev();
     }
-    if(index < selectedProject) {
-      handlePrev()
-    }
-
-  }
+  };
 
   const handleNext = () => {
     onSelect();
@@ -62,12 +66,11 @@ export const Projects = () => {
     setAutoplayDelay(10000);
     emblaApi?.scrollPrev();
   };
-  
+
   useEffect(() => {
     if (!emblaApi) return;
     emblaApi.on("reInit", onSelect);
   }, [emblaApi]);
-
 
   return (
     <Box className={classes.body} id="projects">

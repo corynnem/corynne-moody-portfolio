@@ -9,22 +9,22 @@ export const useStyles = makeStyles()(() => ({
     height: "100vh",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
-    alignContent: "center",
-    alignItems: "center",
+    justifyContent: "end",
     backgroundColor: "black",
     zIndex: 999,
+    [theme.breakpoints.down("sm")]: {
+      justifyContent: "end",
+    },
   },
   projectsSection: {
     width: "100%",
-
-    // THIS IS WHERE IT'S BROKEDED AND I CAN'T FIX IT
-    
-    // display: "flex",
-    // flexDirection: "column",
-    // justifyContent: "center",
-    // alignContent: "center",
-    // alignItems: "center",
+    display: 'flex',
+    flexDirection: "column",
+    gap: 100,
+    marginBottom: theme.spacing(5),
+    [theme.breakpoints.down("sm")]: {
+      gap: 25,
+    },
   },
   /* container */
   root: {
@@ -34,18 +34,8 @@ export const useStyles = makeStyles()(() => ({
     position: "relative",
     width: "85%",
   },
-  /* enable embla viewport -> container -> slide (required for scrolling) */
   viewport: {
-    width: "85%",
-    overflow: "hidden",
-    borderRadius: 24,
-    background: `
-      radial-gradient(900px 600px at 85% -120px, ${alpha(theme.palette.primary.main, 0.18)}, transparent 70%),
-      radial-gradient(900px 600px at -120px 100px, ${alpha(theme.palette.primary.main, 0.14)}, transparent 70%),
-      ${theme.palette.background.paper}
-    `,
-    boxShadow: `0 0 0 1px ${alpha(theme.palette.divider, 0.55)} inset`,
-    scrollBehavior: 'smooth',
+    scrollBehavior: "smooth",
   },
   container: {
     display: "flex",
@@ -56,20 +46,22 @@ export const useStyles = makeStyles()(() => ({
     touchAction: "pan-y",
     width: "85%",
   },
- 
+
   /* controls */
   controls: {
     display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginTop: theme.spacing(1.5),
-    width: "85%",
+    justifyContent: "center",
+    gap: theme.spacing(5),
+    margin: theme.spacing(1, 1, 1, 1.5),
+    [theme.breakpoints.down("sm")]: {
+      justifyContent: "space-between",
+    },
   },
   arrowBtn: {
     backgroundColor: theme.palette.background.paper,
     color: theme.palette.text.primary,
     border: `1px solid ${alpha(theme.palette.primary.main, 0.35)}`,
-    "&:hover": { backgroundColor: alpha(theme.palette.background.paper, 0.25) },
+    "&:hover": { backgroundColor: theme.palette.background.paper },
   },
   dots: {
     display: "flex",
@@ -82,8 +74,8 @@ export const useStyles = makeStyles()(() => ({
     width: 8,
     height: 8,
     borderRadius: "50%",
-    backgroundColor: alpha(theme.palette.text.primary, 0.28),
-    "&.isActive": { backgroundColor: theme.palette.secondary.main },
+    backgroundColor: alpha(theme.palette.background.paper, 0.28),
+    "&.isActive": { backgroundColor: theme.palette.background.paper },
   },
   title: {
     color: "#F1E3D3",
@@ -91,8 +83,10 @@ export const useStyles = makeStyles()(() => ({
     fontSize: "4rem",
     display: "flex",
     gap: "10px",
+    marginLeft: theme.spacing(15),
     [theme.breakpoints.down("sm")]: {
       fontSize: "2.4rem",
+      marginLeft: theme.spacing(5),
     },
   },
 }));

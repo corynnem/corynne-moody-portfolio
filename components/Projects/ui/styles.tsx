@@ -4,7 +4,7 @@ import { alpha, darken } from "@mui/material/styles";
 export const useStyles = makeStyles()((theme) => ({
   slide: {
     flex: "0 0 auto",
-    width: "85%",
+    width: "100%",
     [theme.breakpoints.up("sm")]: { width: "70%" },
     [theme.breakpoints.up("md")]: { width: "48%" },
     [theme.breakpoints.up("lg")]: { width: "38%" },
@@ -33,12 +33,13 @@ export const useStyles = makeStyles()((theme) => ({
     "&:hover $infoWrap": { transform: "translateY(-6px)" },
   },
   infoLayer: {
+    height: '400px',
     position: "absolute",
     inset: 0,
     background: `linear-gradient(180deg, ${alpha(
       theme.palette.background.default,
       0
-    )} 20%, ${alpha(theme.palette.background.default, 0.35)} 55%, ${alpha(
+    )} 0%, ${alpha(theme.palette.background.default, 0.35)} 20%, ${alpha(
       theme.palette.background.default,
       0.75
     )} 85%, ${theme.palette.background.default})`,
@@ -50,21 +51,26 @@ export const useStyles = makeStyles()((theme) => ({
     inset: 0,
     backgroundSize: "cover",
     backgroundPosition: "center",
-    filter: "saturate(1.05)",
+    filter: "saturate(1.05) ",
+    opacity: '50%',
   },
 
   titleChip: {
     position: "absolute",
     top: 16,
     left: 16,
-    padding: "8px 14px",
+    padding: theme.spacing(1, 2),
     borderRadius: 999,
     backdropFilter: "blur(6px)",
     backgroundColor: alpha(theme.palette.background.paper, 0.65),
     border: `1px solid ${alpha(theme.palette.primary.main, 0.35)}`,
     color: darken(theme.palette.text.primary, 0.02),
-    fontWeight: 800,
-    letterSpacing: 0.2,
+    [theme.breakpoints.down('sm')]: {
+
+      padding: theme.spacing(1, 2),
+      textAlign: 'center',
+      maxWidth: '80%'
+    }
   },
   infoWrap: {
     position: "absolute",
@@ -76,7 +82,7 @@ export const useStyles = makeStyles()((theme) => ({
     background: `linear-gradient(180deg, ${alpha(
       theme.palette.background.default,
       0
-    )} 0%, ${alpha(theme.palette.background.default, 0.85)} 50%, ${
+    )} 0%, ${alpha(theme.palette.background.default, 0.85)} 20%, ${
       theme.palette.background.default
     } 100%)`,
     transform: "translateY(0)",

@@ -1,31 +1,34 @@
-
+import healthAssociates from '@/public/images/healthAssociates.png'
 export type Project = {
   id: string;
   name: string;
   description: string;
   tech: string[];
-  href?: string;
   image?: string; 
-
+  codeLink?: string
+  projectLink?: string;
 }
 
 
 export const projects: Project[] = [
   {
     id: "1",
-    name: "Nebraska on Accident",
+    name: "Health Associates",
     description:
-      "A band website with streaming embeds, a downloadable press kit, and a zine-inspired gallery layout.",
-    tech: ["Next.js", "TypeScript", "MUI", "tss-react"],
-    href: "https://example.com/nebraska-on-accident",
+      "A website built for a psychiatry office; Includes scheduling tools, online billing, and online forms",
+    tech: ["Next.js", "MUI", "React", "Vercel"],
+    projectLink: "https://healthassociatesindy.com/",
+    codeLink: "https://github.com/corynnem/health-associates",
+    image: healthAssociates.src
   },
   {
     id: "2",
-    name: "Rewards Datagrid",
+    name: "Task Database",
     description:
       "A high-performance virtualized data grid with custom column builders, CSV export, and dynamic filtering.",
-    tech: ["React", "MUI X DataGrid", "GraphQL", "MongoDB"],
-    href: "https://example.com/rewards-datagrid",
+    tech: ["Node.js", "Express.js", "Sequelize", "PostgreSQL", "Swagger.io"],
+    projectLink: "https://example.com/rewards-datagrid",
+    codeLink: "https://github.com/corynnem/taskdb"
   },
   {
     id: "3",
@@ -33,22 +36,14 @@ export const projects: Project[] = [
     description:
       "Scheduling tools, resource sharing, and conflict-resolution guides for summer camp volunteers.",
     tech: ["Next.js", "tRPC", "PostgreSQL", "Auth.js"],
-    href: "https://example.com/girlsrock-volunteers",
+    // projectLink: "https://example.com/girlsrock-volunteers",
   },
   {
     id: "4",
-    name: "Zucchini Tracker",
+    name: "Nebraska on Accident",
     description:
-      "A tongue-in-cheek garden tracker to log plant growth, pest sightings, and harvest stats with rich charts.",
-    tech: ["React", "Recharts", "Firebase"],
-    href: "https://example.com/zucchini-tracker",
-  },
-  {
-    id: "5",
-    name: "Portfolio v3",
-    description:
-      "Your personal site — fully responsive, cutesy-meets-professional aesthetic, with theme-driven styling.",
-    tech: ["Next.js", "TypeScript", "MUI", "tss-react", "Embla Carousel"],
-    href: "https://example.com/portfolio-v3",
+      "A marketing tool for a local band in the Indianapolis area ",
+    tech: ["React", "Next", "MUI", "Vercel"],
+    projectLink: "https://example.com/noa",
   },
 ];

@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Card, Chip, Stack, Typography, Button } from "@mui/material";
-import { Launch } from "@mui/icons-material";
+import { Launch, Code } from "@mui/icons-material";
 import { useStyles } from "./styles";
 import { Project } from "../helpers";
 
@@ -12,10 +12,14 @@ interface IndividualCardProps {
 
 export const IndividualCard = ({ project, onSelect, index }: IndividualCardProps) => {
   const { classes, cx } = useStyles();
-  const { id, image, name, description, tech, href } = project ?? {};
+  const { id, image, name, description, tech, projectLink, codeLink } = project ?? {};
 
   return (
-    <Box key={id} className={`${classes.slide} embla__slide`} onClick={() => onSelect(index)}>
+    <Box
+      key={id}
+      className={`${classes.slide} embla__slide`}
+      onClick={() => onSelect(index)}
+    >
       <Card elevation={0} className={cx(classes.card, classes.hoverable)}>
         <Box
           className={classes.heroImage}
@@ -26,9 +30,9 @@ export const IndividualCard = ({ project, onSelect, index }: IndividualCardProps
         </Typography>
         <Box className={classes.infoLayer} />
         <Box className={classes.infoWrap}>
-          <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
+          {/* <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
             About this project
-          </Typography>
+          </Typography> */}
           <Typography className={classes.desc}>{description}</Typography>
 
           <Stack direction="row" className={classes.chipRow}>
@@ -38,16 +42,28 @@ export const IndividualCard = ({ project, onSelect, index }: IndividualCardProps
           </Stack>
 
           <Stack direction="row" className={classes.navToProject}>
-            {href && (
+            {projectLink && (
               <Button
                 variant="outlined"
                 size="small"
                 endIcon={<Launch fontSize="small" />}
                 className={classes.ghostBtn}
-                href={href}
+                href={projectLink}
                 target="_blank"
               >
                 View project
+              </Button>
+            )}
+            {codeLink && (
+              <Button
+                variant="outlined"
+                size="small"
+                endIcon={<Code fontSize="small" />}
+                className={classes.ghostBtn}
+                href={codeLink}
+                target="_blank"
+              >
+                View Code
               </Button>
             )}
           </Stack>
