@@ -23,7 +23,7 @@ export const useStyles = makeStyles()(() => ({
     gap: 100,
     marginBottom: theme.spacing(5),
     [theme.breakpoints.down("sm")]: {
-      gap: theme.spacing(0),
+      gap: 'inherit',
     },
   },
   /* container */
