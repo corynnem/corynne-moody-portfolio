@@ -5,36 +5,48 @@ const useStyles = makeStyles()((theme) => ({
     width: "100vw",
     height: "100vh",
     display: "flex",
-    flexDirection: "column",
+    flexDirection: "row",
     justifyContent: "center",
-    alignContent: 'center',
+    alignContent: "center",
     alignItems: "center",
-    backgroundColor: 'black',
+    backgroundColor: "black",
+    gap: theme.spacing(3),
     zIndex: 999,
-    
+    [theme.breakpoints.down("md")]: {
+      flexDirection: "column",
+    },
   },
   title: {
     color: "#F1E3D3",
     fontWeight: 500,
     fontSize: "4rem",
     display: "flex",
-    gap: '10px',
-    [theme.breakpoints.down('sm')]: {
-        fontSize: "2.4rem",
-    }
+    gap: "10px",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "2.4rem",
+    },
   },
   subtitle: {
     color: "#F1E3D3",
     fontSize: "1.275rem",
-    [theme.breakpoints.down('sm')]: {
-        fontSize: ".875rem",
-    }
+    [theme.breakpoints.down("md")]: {
+      fontSize: ".875rem",
+    },
   },
   bodyText: {
-    width: '50%',
-    [theme.breakpoints.down('sm')]: {
-       width: '75%'
-  }
-  }
-}));
-export default useStyles;
+    width: "50%",
+    [theme.breakpoints.down("md")]: {
+      width: "75%",
+    },
+  },
+  headshot: {
+    marginTop: '50px',
+    height: 400,
+    width: 400,
+    [theme.breakpoints.down('md')]: {
+      height: 250,
+      width: 250,
+      }
+    },
+  }));
+  export default useStyles;
