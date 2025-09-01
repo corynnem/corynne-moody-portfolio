@@ -3,7 +3,7 @@ import { Box, Typography, Button } from "@mui/material";
 import useStyles from "./styles";
 import { ParticleBackground } from "./ui/Particles";
 
-const RESUME_URL = "https://drive.google.com/file/d/10OPCj_eNCQS5opKsOtaKsewGcn31BUdY/view?usp=sharing"
+const RESUME_URL = "https://drive.google.com/file/d/1tgmZFRUWDEfCnSTsOmffLHSYtYnV9lzj/view?usp=sharing"
 
 export const HomeSection = () => {
   const { classes } = useStyles();
