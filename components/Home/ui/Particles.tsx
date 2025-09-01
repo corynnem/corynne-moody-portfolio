@@ -3,10 +3,13 @@ import Particles from "react-tsparticles";
 import type { Engine } from "tsparticles-engine";
 import { useCallback } from "react";
 import { loadSlim } from "tsparticles-slim";
+import { useMediaQuery } from "@mui/material";
+import { theme } from "@/theme";
 import useStyles from "../styles";
 
 export const ParticleBackground = () => {
     const { classes }= useStyles()
+    const isBelowSm = useMediaQuery(theme.breakpoints.down('sm'))
   // const particlesLoaded = useCallback(
   //   async (container: Container | undefined) => {
   //      await console.log(container);
@@ -53,7 +56,7 @@ export const ParticleBackground = () => {
               quantity: 4,
             },
             repulse: {
-              distance: 200,
+              distance: isBelowSm ? 100 : 200,
               duration: 0.4,
             },
           },
@@ -82,7 +85,7 @@ export const ParticleBackground = () => {
           number: {
             density: {
               enable: true,
-              area: 300,
+              area: isBelowSm ? 250 : 300,
             },
             value: 80,
           },

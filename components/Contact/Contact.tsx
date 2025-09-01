@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import React, { useState, FormEvent, ChangeEvent} from "react";
 import {
   Container,
   Card,
@@ -25,47 +25,46 @@ import {
   SendRounded,
 } from "@mui/icons-material";
 import {
-  ContactFormProps,
   FormErrors,
   FormValues,
   FormTypes,
   validateForm,
   MAX_CHARS,
 } from "./helpers";
-import useStyles from "./styles"
+import useStyles from "./styles";
+import { useForm } from '@formspree/react';
 
-export const Contact = ({ onSubmit }: ContactFormProps) => {
+export const Contact = () => {
   const { classes } = useStyles();
-  const [formValues, setFormValues] = React.useState<FormValues>({
+  const [_state, handleSubmit] = useForm("xjkoddrd");
+
+  const [formValues, setFormValues] = useState<FormValues>({
     name: "",
     email: "",
     message: "",
   });
-  const [errors, setErrors] = React.useState<FormErrors>({});
-  const [sent, setSent] = React.useState<boolean>(false);
-  const [sending, setSending] = React.useState<boolean>(false);
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [sent, setSent] = useState<boolean>(false);
+  const [sending, setSending] = useState<boolean>(false);
 
   const { name, email, message } = formValues ?? {};
 
   const handleChange =
     (field: keyof FormValues) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       setFormValues((v) => ({ ...v, [field]: e.target.value }));
     };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmitForm = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const isValidated = validateForm({ formValues, setErrors });
+    console.log(isValidated)
     if (!isValidated) return;
     setSending(true);
 
     try {
-      if (typeof onSubmit === "function") {
-        await onSubmit(formValues);
-      } else {
-        await new Promise((r) => setTimeout(r, 900));
-      }
+      await handleSubmit(e)
       setSent(true);
       setFormValues({ name: "", email: "", message: "" });
     } catch (err) {
@@ -82,14 +81,22 @@ export const Contact = ({ onSubmit }: ContactFormProps) => {
   const remainingCharacters = MAX_CHARS - message.length;
 
   return (
-    <Box id="contact" className={classes.body}>
+    <Box
+    id="contact"
+    className={classes.body}
+    >
       <Container maxWidth="sm">
         <Card className={classes.card}>
           <Box className={classes.formSection} />
           <CardContent sx={{ p: { xs: 3, sm: 4 } }}>
-            <Stack spacing={2.5} component="form" onSubmit={handleSubmit}>
-              <Stack direction="row" alignItems="center" justifyContent="space-between" spacing={1}>
-                <Typography variant="h5" fontWeight={800} >
+            <Stack spacing={2.5} component="form" onSubmit={handleSubmitForm}>
+              <Stack
+                direction="row"
+                alignItems="center"
+                justifyContent="space-between"
+                spacing={1}
+              >
+                <Typography variant="h5" fontWeight={800}>
                   Let’s be pen pals
                 </Typography>
                 <Chip
@@ -102,11 +109,14 @@ export const Contact = ({ onSubmit }: ContactFormProps) => {
               </Stack>
 
               <Divider />
-              
-              <FormControl>
+
+              <FormControl className={classes.formControl}>
                 <TextField
                   label="Your name"
-                  placeholder="e.g., Corynne"
+                  placeholder="e.g., Corynne Moody"
+                  id="name"
+                  type="name"
+                  name="name"
                   value={name}
                   onChange={handleChange(FormTypes.Name)}
                   error={Boolean(errors.name)}
@@ -122,14 +132,14 @@ export const Contact = ({ onSubmit }: ContactFormProps) => {
                     },
                   }}
                 />
-              </FormControl>
-
-              <FormControl>
+             
                 <TextField
-                className={classes.formComponents}
+                  id="email"
+                  type="email"
+                  name="email"
+                  className={classes.formComponents}
                   label="Email"
                   placeholder="moody.corynne@gmail.com"
-                  type="email"
                   value={email}
                   onChange={handleChange(FormTypes.Email)}
                   error={Boolean(errors.email)}
@@ -145,18 +155,20 @@ export const Contact = ({ onSubmit }: ContactFormProps) => {
                     },
                   }}
                 />
-              </FormControl>
-
-              <FormControl>
+            
                 <TextField
                   label="Message"
+                  id="message"
+                  name="message"
                   placeholder="Chat with me :)"
                   multiline
                   minRows={4}
                   value={message}
                   onChange={handleChange(FormTypes.Message)}
                   error={Boolean(errors.message)}
-                  helperText={errors.message || `${remainingCharacters} characters left`}
+                  helperText={
+                    errors.message || `${remainingCharacters} characters left`
+                  }
                   slotProps={{
                     input: {
                       inputProps: {
