@@ -28,7 +28,7 @@ export const validateForm = ({
   setErrors,
 }: ValidateProps): boolean => {
   const { name, email, message } = formValues ?? {};
-  const next: FormErrors = {};
+  const next: FormErrors = {}
 
   if (!name.trim()) next.name = "What's your name?";
   if (!email.trim()) next.email = "Email is required";
