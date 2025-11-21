@@ -9,23 +9,24 @@ import useStyles from "../styles";
 
 export const ParticleBackground = () => {
     const { classes }= useStyles()
-    const isBelowSm = useMediaQuery(theme.breakpoints.down('sm'))
-  // const particlesLoaded = useCallback(
-  //   async (container: Container | undefined) => {
-  //      await console.log(container);
-  //   },
-  //   []
-  // );
+    const isBelowSm = useMediaQuery(theme.breakpoints.down("sm"));
+    //  Might use later, https://linktoinfo.com
+    // const particlesLoaded = useCallback(
+    //   async (container: Container | undefined) => {
+    //      await console.log(container);
+    //   },
+    //   []
+    // );
 
-  const particlesInit = useCallback(async (engine: Engine) => {
-    // NOTE FROM tsParticles DEV:
-    // you can initialize the tsParticles instance (engine) here, adding custom shapes or presets
-    // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
-    // starting from v2 you can add only the features you need reducing the bundle size
-    //await loadFull(engine);
-    await loadSlim(engine);
-  }, []);
-
+    const particlesInit = useCallback(async (engine: Engine) => {
+      // NOTE FROM tsParticles DEV:
+      // you can initialize the tsParticles instance (engine) here, adding custom shapes or presets
+      // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+      // starting from v2 you can add only the features you need reducing the bundle size
+      //await loadFull(engine);
+      await loadSlim(engine);
+    }, []);
+d
   return (
     <Particles
       id="tsparticles"
