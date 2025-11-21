@@ -29,7 +29,7 @@ export const projects: Project[] = [
     name: "Girls Rock! Volunteer Portal",
     description:
       "Scheduling tools, resource sharing, and conflict-resolution guides for summer camp volunteers.",
-    tech: ["Next.js", "tRPC", "PostgreSQL", "Auth.js"],
+    tech: ["Next.js", "MUI", "React", "Sequelize", "PostgreSQL", "Swagger.io"],
     // projectLink: "https://example.com/girlsrock-volunteers",
     inProgress: true
   },
@@ -38,8 +38,8 @@ export const projects: Project[] = [
     name: "Nebraska on Accident",
     description:
       "A marketing tool for a local band in the Indianapolis area ",
-    tech: ["React", "Next", "MUI", "Vercel"],
-    projectLink: "https://example.com/noa",
+    tech: ["React", "Next.js", "MUI", "Vercel"],
+    // projectLink: "https://example.com/noa",
     inProgress: true
   },
   {

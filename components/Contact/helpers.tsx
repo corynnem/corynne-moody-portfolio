@@ -30,11 +30,11 @@ export const validateForm = ({
   const { name, email, message } = formValues ?? {};
   const next: FormErrors = {}
 
-  if (name.trim()) next.name = "What's your name?";
-  if (email.trim()) next.email = "Email is required";
+  if (!name.trim()) next.name = "What's your name?";
+  if (!email.trim()) next.email = "Email is required";
   else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
     next.email = "That email looks off";
-  if (message.trim()) next.message = "Say hello! A few words go here";
+  if (!message.trim()) next.message = "Say hello! A few words go here";
   if (message.length > MAX_CHARS)
     next.message = `Keep under ${MAX_CHARS} characters`;
   setErrors(next);

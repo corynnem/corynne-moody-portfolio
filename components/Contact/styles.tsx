@@ -38,5 +38,9 @@ const useStyles = makeStyles()((theme) => ({
     backgroundColor: theme.palette.background.default,
     color: theme.palette.background.paper,
   },
+  formControl: {
+    display: 'flex',
+    gap: theme.spacing(2)
+  }
 }));
 export default useStyles;
