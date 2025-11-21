@@ -26,7 +26,7 @@ export const ParticleBackground = () => {
       //await loadFull(engine);
       await loadSlim(engine);
     }, []);
-
+d
   return (
     <Particles
       id="tsparticles"
